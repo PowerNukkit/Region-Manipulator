@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.31'
     id 'com.jfrog.bintray' version '1.8.4'
     id 'maven'
+    //id 'signing'
+    id 'org.jetbrains.dokka' version '0.9.18'
 }
 
 group 'br.com.gamemods'
@@ -14,8 +16,7 @@ sourceSets.test.java.srcDirs = ["src/main/kotlin"]
 sourceCompatibility = 1.8
 
 repositories {
-    mavenCentral()
-    maven { url 'https://dl.bintray.com/gamemods/GameMods' }
+    jcenter()
 }
 
 dependencies {
@@ -40,6 +41,7 @@ install {
             artifactId project.name
             version project.version
             name project.name
+            description "A kotlin/java lib that allows you to read and write MCA files in a clean way"
             url "https://github.com/GameModsBR/Region-Manipulator"
             inceptionYear '2019'
             licenses {
@@ -47,6 +49,13 @@ install {
                     name 'MIT'
                     url 'https://raw.githubusercontent.com/GameModsBR/Region-Manipulator/master/LICENSE'
                     distribution 'repo'
+                }
+            }
+            developers {
+                developer {
+                    id = 'joserobjr'
+                    name = 'José Roberto de Araújo Júnior'
+                    email = 'joserobjr@gamemods.com.br'
                 }
             }
             scm {
@@ -75,8 +84,27 @@ bintray {
             desc = "Region-Manipulator version ${project.version}"
             //released = new Date()
             vcsTag = "v${project.version}"
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                //passphrase = '123' //Optional. The passphrase for GPG signing'
+            }
         }
     }
+}
+
+//signing {
+//    sign configurations.archives
+//}
+
+task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
+    outputFormat = 'javadoc'
+    outputDirectory = "$buildDir/javadoc"
+}
+
+task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
+    classifier = 'javadoc'
+    from dokkaJavadoc.outputDirectory
+    // options.encoding = 'UTF-8'
 }
 
 task sourcesJar(type: Jar) {
@@ -86,4 +114,5 @@ task sourcesJar(type: Jar) {
 
 artifacts {
     archives sourcesJar
+    archives javadocJar
 }
