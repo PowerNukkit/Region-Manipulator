@@ -1,3 +1,3 @@
-package br.com.gamemods.j2nwc
+package br.com.gamemods.regionmanipulator
 
 data class ChunkPos(val xPos: Int, val zPos: Int)

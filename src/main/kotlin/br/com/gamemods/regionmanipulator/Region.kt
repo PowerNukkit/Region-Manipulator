@@ -1,4 +1,4 @@
-package br.com.gamemods.j2nwc
+package br.com.gamemods.regionmanipulator
 
 import kotlin.math.floor
 
