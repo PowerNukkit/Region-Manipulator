@@ -111,11 +111,18 @@ task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
 task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
     classifier = 'javadoc'
     from dokkaJavadoc.outputDirectory
+    from file("$projectDir/LICENSE")
+    from file("$projectDir/README.md")
     // options.encoding = 'UTF-8'
 }
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.java.srcDirs
+    from file("$projectDir/build.gradle")
+    from file("$projectDir/gradle.properties")
+    from file("$projectDir/settings.gradle")
+    from file("$projectDir/LICENSE")
+    from file("$projectDir/README.md")
     classifier = 'sources'
 }
 
