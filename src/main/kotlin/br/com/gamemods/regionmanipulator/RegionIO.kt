@@ -63,7 +63,7 @@ object RegionIO {
         }
     }
 
-    fun deflate(data: ByteArray, level: Int): ByteArray {
+    private fun deflate(data: ByteArray, level: Int): ByteArray {
         val deflater = Deflater(level)
         deflater.reset()
         deflater.setInput(data)
