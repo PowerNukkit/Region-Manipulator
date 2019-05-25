@@ -28,7 +28,7 @@ class RegionTest {
             }
         }
 
-        val mca = RegionIO.readRegion(tempFile, RegionPos(1, -1))
+        val mca = RegionIO.readRegion(tempFile, RegionPos(-1, -2))
         RegionIO.writeRegion(tempFile, mca)
     }
 }
