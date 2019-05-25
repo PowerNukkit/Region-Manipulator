@@ -130,8 +130,13 @@ object RegionIO {
         val header = DataOutputStream(headerData)
 
         chunkInfoHeader.forEach {
-            assert(ByteBuffer.wrap(heapBytes, it.location - 8192, 4).int > 0) {
-                "Header location is pointing to an incorrect heap location"
+            if (it.size > 0) {
+                assert(it.location >= 8192) {
+                    "Header location is too short, it must be >= 8192! Got ${it.location}"
+                }
+                assert(ByteBuffer.wrap(heapBytes, it.location - 8192, 4).int > 0) {
+                    "Header location is pointing to an incorrect heap location"
+                }
             }
             val sec = it.location / 4096
             header.writeByte((sec shr 16) and 0xFF)
