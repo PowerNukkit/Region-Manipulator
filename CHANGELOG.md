@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - This changelog file
+- Documentation to all public types, methods and properties.
+- Static methods for java users calling `RegionIO`
+
+### Changed
+- `RegionIO.ChunkInfo` to private.
 
 ## [0.0.3] - 2019-05-25
 ### Changed

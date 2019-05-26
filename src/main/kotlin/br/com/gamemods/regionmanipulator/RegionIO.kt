@@ -11,6 +11,7 @@ import kotlin.math.ceil
 
 
 object RegionIO {
+    @JvmStatic
     fun readRegion(file: File): Region {
         val nameParts = file.name.split('.', limit = 4)
         val xPos = nameParts[1].toInt()
@@ -19,8 +20,9 @@ object RegionIO {
         return readRegion(file, regionPos)
     }
 
-    data class ChunkInfo(val location: Int, val size: Int, var lastModified: Date = Date(0))
+    private data class ChunkInfo(val location: Int, val size: Int, var lastModified: Date = Date(0))
 
+    @JvmStatic
     fun readRegion(file: File, pos: RegionPos): Region {
 
         RandomAccessFile(file, "r").use { input ->
@@ -81,6 +83,7 @@ object RegionIO {
         return bos.toByteArray()
     }
 
+    @JvmStatic
     fun writeRegion(file: File, region: Region) {
         val chunkInfoHeader = mutableListOf<ChunkInfo>()
 
