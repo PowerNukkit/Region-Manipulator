@@ -30,16 +30,28 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
      * @param value The chunk that is being added
      */
     override fun put(key: ChunkPos, value: Chunk): Chunk? {
-        // TODO Check if the key and value matches
-        val regX = floor(key.xPos / 32.0).toInt()
-        val regZ = floor(key.zPos / 32.0).toInt()
-        check(regX == position.xPos && regZ == position.zPos) {
-            "The chunk $key is not part of the region $position. It's part of r.$regX.$regZ.mca"
+        check(key == value.position) {
+            "The chunk's key doesn't match the chunk's value. Key: $key, Chunk: ${value.position}"
         }
+        key.checkValid()
         val offset = offset(key)
         val before = chunks[offset]
         chunks[offset] = value
         return before
+    }
+
+    private fun ChunkPos.checkValid() {
+        val regX = floor(xPos / 32.0).toInt()
+        val regZ = floor(zPos / 32.0).toInt()
+        check(regX == position.xPos && regZ == position.zPos) {
+            "The chunk $this is not part of the region $position. It's part of r.$regX.$regZ.mca"
+        }
+    }
+
+    private fun ChunkPos.isValid(): Boolean {
+        val regX = floor(xPos / 32.0).toInt()
+        val regZ = floor(zPos / 32.0).toInt()
+        return regX == position.xPos && regZ == position.zPos
     }
 
     /**
@@ -47,9 +59,7 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
      * @param key The chunk position in the world
      */
     override fun get(key: ChunkPos): Chunk? {
-        val regX = floor(key.xPos / 32.0).toInt()
-        val regZ = floor(key.zPos / 32.0).toInt()
-        if (regX != position.xPos || regZ != position.zPos) {
+        if (!key.isValid()) {
             return null
         }
 
@@ -61,7 +71,9 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
      * @param key The chunk position in the world
      */
     override fun remove(key: ChunkPos): Chunk? {
-        // TODO This may cause an exception, check if it's part of this region
+        if (!key.isValid()) {
+            return null
+        }
         val offset = offset(key)
         val before = chunks[offset]
         chunks[offset] = null
@@ -74,7 +86,9 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
      * @param value The expected value. Will only remove if the current value matches this value.
      */
     override fun remove(key: ChunkPos, value: Chunk): Boolean {
-        // TODO This may cause an exception, check if it's part of this region
+        if (!key.isValid()) {
+            return false
+        }
         val offset = offset(key)
         val before = chunks[offset]
         return if (value == before) {
@@ -100,7 +114,7 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
      * Adds all chunks in the list.
      * @param chunks The chunks that will be added. They must be within the range of this region. The list must not contains null values.
      */
-    //TODO Make syntetic
+    @JvmSynthetic
     @JvmName("addAllNotNull")
     fun addAll(chunks: List<Chunk>) {
         chunks.forEach(this::add)
@@ -110,11 +124,17 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
      * Adds all chunks in the list.
      * @param chunks The chunks that will be added. They must be within the range of this region. Null values are ignored.
      */
-    //TODO Rename to addAll
-    @JvmName("addAllNullable")
+    @JvmName("addAll")
     fun addAll(chunks: List<Chunk?>) {
         chunks.asSequence().filterNotNull().forEach(this::add)
     }
+
+    /**
+     * Adds all chunks in the list.
+     * @param chunks The chunks that will be added. They must be within the range of this region. Null values are ignored.
+     */
+    @Deprecated("Java users should call `Region.addAll`", ReplaceWith("addAll(chunks)"))
+    fun addAllNullable(chunks: List<Chunk?>) = addAll(chunks)
 
     /**
      * A mutable set containing mutable entries which when modified will also modify the [Region] object.
