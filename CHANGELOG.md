@@ -47,7 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [Unreleased]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.3...HEAD
 [0.0.3]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.2..v0.0.3
 [0.0.2]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.1..v0.0.2
-[0.0.1]: https://github.com/GameModsBR/Region-Manipulator/compare/a8f41900b32740648752ff214581eb8da0f928f6..v0.0.1
+[0.0.1]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.0..v0.0.1
 
 [Download 0.0.3]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.3/
 [Download 0.0.2]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.2/
