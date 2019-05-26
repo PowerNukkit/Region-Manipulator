@@ -1,7 +1,7 @@
 # Region Manipulator
 A Kotlin/Java library that allows you to read and write `mca` files in a simple way.
 
-[Click here to access the most recent JavaDoc](https://gamemodsbr.github.io/NBT-Manipulator/javadoc)
+[Click here to access the most recent JavaDoc](https://gamemodsbr.github.io/Region-Manipulator/javadoc)
 
 You may also want to see the [changelog](CHANGELOG.md) file to be aware of all changes in the tool that may impact you.
 
