@@ -35,6 +35,9 @@ dependencies {
 <dependency org="br.com.gamemods" name="region-manipulator" rev="0.0.3"/>
 ```
 
+### Direct JAR
+Download it from [maven central](http://central.maven.org/maven2/br/com/gamemods/region-manipulator/).
+
 ## Examples
 ```kotlin
 internal fun clearEntities(from: File, to: File) {
