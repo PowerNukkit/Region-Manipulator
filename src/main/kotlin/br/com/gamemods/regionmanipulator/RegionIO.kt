@@ -9,8 +9,14 @@ import java.util.zip.GZIPInputStream
 import java.util.zip.InflaterInputStream
 import kotlin.math.ceil
 
-
+/**
+ * Contains usefull methods do read and write [Region] from [File].
+ */
 object RegionIO {
+    /**
+     * Reads a region identifying it's [RegionPos] by the name of the file.
+     * @param file The file to be read. It must be named like r.1.-2.mca where 1 is it's xPos and -2 it's zPos.
+     */
     @JvmStatic
     fun readRegion(file: File): Region {
         val nameParts = file.name.split('.', limit = 4)
@@ -22,6 +28,11 @@ object RegionIO {
 
     private data class ChunkInfo(val location: Int, val size: Int, var lastModified: Date = Date(0))
 
+    /**
+     * Reads a region using a specified [RegionPos].
+     * @param file The file to be read. Can have any name
+     * @param pos The position of this region. Must match the content's otherwise it won't be manipulable.
+     */
     @JvmStatic
     fun readRegion(file: File, pos: RegionPos): Region {
 
@@ -83,6 +94,11 @@ object RegionIO {
         return bos.toByteArray()
     }
 
+    /**
+     * Saves a [Region] in a [File]. The region file will be entirely rebuilt.
+     * @param file The file which will be written.
+     * @param region The region which will be saved.
+     */
     @JvmStatic
     fun writeRegion(file: File, region: Region) {
         val chunkInfoHeader = mutableListOf<ChunkInfo>()

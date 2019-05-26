@@ -150,6 +150,13 @@ if (JavaVersion.current().majorVersion == "8") {
         System.setProperty('org.ajoberstar.grgit.auth.password', ext['org.ajoberstar.grgit.auth.password'].toString())
     }
 
+    dokka {
+        externalDocumentationLink {
+            url = new URL('https://gamemodsbr.github.io/NBT-Manipulator/javadoc/')
+            packageListUrl = new URL("https://gamemodsbr.github.io/NBT-Manipulator/javadoc/package-list")
+        }
+    }
+
     gitPublish {
         // where to publish to (repo must exist)
         repoUri = 'https://github.com/GameModsBR/Region-Manipulator.git'
