@@ -24,10 +24,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `RegionIO.ChunkInfo` to private.
 
 ## [0.0.3] - 2019-05-25
+[Downloads from maven central.][Download 0.0.3]
 ### Changed
 - The dependency to [NBT-Manipulator] from `implementation` to `compile` so it can get inherited.
 
 ## [0.0.2] - 2019-05-25
+[Downloads from maven central.][Download 0.0.2]
 ### Changed
 - JavaDoc will not generate when building on Java 9+ due to a dokka issue
 - The targetCompatibility to Java 8
@@ -37,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#1] IndexOutOfBoundsException when writing an empty chunk
 
 ## [0.0.1] - 2019-05-23
+[Downloads from maven central.][Download 0.0.1]
 ### Added
 - API to read and write to/from MCA files using `RegionIO`
 - API to freely manipulate `Region` and `Chunk` data loaded in memory
@@ -45,5 +48,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.0.3]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.2..v0.0.3
 [0.0.2]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.1..v0.0.2
 [0.0.1]: https://github.com/GameModsBR/Region-Manipulator/compare/a8f41900b32740648752ff214581eb8da0f928f6..v0.0.1
+
+[Download 0.0.3]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.3/
+[Download 0.0.2]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.2/
+[Download 0.0.1]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.1/
+
 [NBT-Manipulator]: https://github.com/GameModsBR/NBT-Manipulator/
 [#1]: https://github.com/GameModsBR/Region-Manipulator/issues/1
+
