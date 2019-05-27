@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Region.put` will now check if the key matches the value's position
 - `Region.addAllNotNull` is now synthetic, java users should always call `Region.addAll`
 - `Region.addAllNullable`is now deprecated. Java users should always call `Region.addAll`
+- Updated NBT-Manipulator to `0.0.2`
 
 ### Fixed
 - Potential exception when trying to remove a chunk that is not valid for the region
