@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compile 'br.com.gamemods:region-manipulator:1.0.0'
+    compile 'br.com.gamemods:region-manipulator:1.0.1'
 }
 ```
 
@@ -28,14 +28,14 @@ dependencies {
     <dependency>
       <groupId>br.com.gamemods</groupId>
       <artifactId>region-manipulator</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1</version>
     </dependency>
 </dependencies>
 ```
 
 ### Ivy
 ```xml
-<dependency org="br.com.gamemods" name="region-manipulator" rev="1.0.0"/>
+<dependency org="br.com.gamemods" name="region-manipulator" rev="1.0.1"/>
 ```
 
 ### Direct JAR
@@ -46,7 +46,7 @@ Download it from [maven central](http://central.maven.org/maven2/br/com/gamemods
 internal fun clearEntities(from: File, to: File) {
     val region = RegionIO.readRegion(from)
     val chunk = region[ChunkPos(region.position.xPos * 32, region.position.zPos * 32)] ?: return
-    chunk.level.getCompoundList("Entities").value.forEach { 
+    chunk.level.getCompoundList("Entities").forEach { 
         println(it.getString("id") + " "+ it.getDoubleList("Pos"))
     }
     chunk.level["Entities"] = NbtList(mutableListOf<NbtCompound>())
