@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Click the link above to see the future.
 
 ## [0.0.4] - 2019-05-27
+[Downloads from maven central.][Download 0.0.4]
 ### Added
 - This changelog file
 - Documentation to all public types, methods and properties.
