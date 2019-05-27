@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 Click the link above to see the future.
 
+## [1.0.0] - 2019-05-27
+[Downloads from maven central.][Download 1.0.0]
+
+[Kotlin Documentation][KDoc 1.0.0]
+
+### Changed
+- Updated NBT-Manipulator to `1.0.0`
+
 ## [0.0.4] - 2019-05-27
+[Downloads from maven central.][Download 0.0.4]
 ### Added
 - This changelog file
 - Documentation to all public types, methods and properties.
@@ -58,6 +67,8 @@ Click the link above to see the future.
 [Download 0.0.3]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.3/
 [Download 0.0.2]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.2/
 [Download 0.0.1]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.1/
+
+[KDoc 1.0.0]: https://github.com/GameModsBR/NBT-Manipulator/blob/0ef42323681f9960cb2c9698d7b8b1d02632691b/kdoc/br.com.gamemods.nbtmanipulator/index.md
 
 [NBT-Manipulator]: https://github.com/GameModsBR/NBT-Manipulator/
 [#1]: https://github.com/GameModsBR/Region-Manipulator/issues/1
