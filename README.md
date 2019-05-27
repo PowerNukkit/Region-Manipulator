@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compile 'br.com.gamemods:region-manipulator:0.0.3'
+    compile 'br.com.gamemods:region-manipulator:0.0.4'
 }
 ```
 
@@ -28,14 +28,14 @@ dependencies {
     <dependency>
       <groupId>br.com.gamemods</groupId>
       <artifactId>region-manipulator</artifactId>
-      <version>0.0.3</version>
+      <version>0.0.4</version>
     </dependency>
 </dependencies>
 ```
 
 ### Ivy
 ```xml
-<dependency org="br.com.gamemods" name="region-manipulator" rev="0.0.3"/>
+<dependency org="br.com.gamemods" name="region-manipulator" rev="0.0.4"/>
 ```
 
 ### Direct JAR
