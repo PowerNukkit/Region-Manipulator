@@ -70,7 +70,7 @@ Click the link above to see the future.
 [Download 0.0.2]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.2/
 [Download 0.0.1]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.1/
 
-[KDoc 1.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/43d2d1593934ec9e7c4965064b123eb919641452/kdoc/br.com.gamemods.regionmanipulator/index.md
+[KDoc 1.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/411820e5642cb10f23ba55ce29d3504cba4efbae/kdoc/br.com.gamemods.regionmanipulator/index.md
 
 [NBT-Manipulator]: https://github.com/GameModsBR/NBT-Manipulator/
 [#1]: https://github.com/GameModsBR/Region-Manipulator/issues/1
