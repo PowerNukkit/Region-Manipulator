@@ -1,8 +1,4 @@
----
-title: RegionPos.xPos - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [RegionPos](index.html) / [xPos](./x-pos.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [RegionPos](index.md) / [xPos](./x-pos.md)
 
 # xPos
 

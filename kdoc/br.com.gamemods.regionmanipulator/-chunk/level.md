@@ -1,8 +1,4 @@
----
-title: Chunk.level - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [Chunk](index.html) / [level](./level.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [Chunk](index.md) / [level](./level.md)
 
 # level
 

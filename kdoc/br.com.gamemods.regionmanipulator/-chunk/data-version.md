@@ -1,8 +1,4 @@
----
-title: Chunk.dataVersion - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [Chunk](index.html) / [dataVersion](./data-version.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [Chunk](index.md) / [dataVersion](./data-version.md)
 
 # dataVersion
 

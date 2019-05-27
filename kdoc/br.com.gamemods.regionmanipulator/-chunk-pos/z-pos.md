@@ -1,8 +1,4 @@
----
-title: ChunkPos.zPos - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [ChunkPos](index.html) / [zPos](./z-pos.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [ChunkPos](index.md) / [zPos](./z-pos.md)
 
 # zPos
 

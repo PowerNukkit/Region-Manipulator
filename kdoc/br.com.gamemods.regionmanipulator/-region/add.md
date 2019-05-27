@@ -1,14 +1,10 @@
----
-title: Region.add - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [Region](index.html) / [add](./add.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [Region](index.md) / [add](./add.md)
 
 # add
 
-`fun add(chunk: `[`Chunk`](../-chunk/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`fun add(chunk: `[`Chunk`](../-chunk/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
 
-Shortcut of [put](put.html).
+Shortcut of [put](put.md).
 
 ### Parameters
 

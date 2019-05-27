@@ -1,8 +1,4 @@
----
-title: Chunk.nbtFile - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [Chunk](index.html) / [nbtFile](./nbt-file.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [Chunk](index.md) / [nbtFile](./nbt-file.md)
 
 # nbtFile
 

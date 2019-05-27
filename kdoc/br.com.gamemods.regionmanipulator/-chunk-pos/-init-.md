@@ -1,8 +1,4 @@
----
-title: ChunkPos.<init> - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [ChunkPos](index.html) / [&lt;init&gt;](./-init-.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [ChunkPos](index.md) / [&lt;init&gt;](./-init-.md)
 
 # &lt;init&gt;
 

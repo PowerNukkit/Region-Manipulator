@@ -1,20 +1,16 @@
----
-title: RegionIO.readRegion - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [RegionIO](index.html) / [readRegion](./read-region.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [RegionIO](index.md) / [readRegion](./read-region.md)
 
 # readRegion
 
-`@JvmStatic fun readRegion(file: `[`File`](https://docs.oracle.com/javase/6/docs/api/java/io/File.html)`): `[`Region`](../-region/index.html)
+`@JvmStatic fun readRegion(file: `[`File`](https://docs.oracle.com/javase/6/docs/api/java/io/File.html)`): `[`Region`](../-region/index.md)
 
-Reads a region identifying it's [RegionPos](../-region-pos/index.html) by the name of the file.
+Reads a region identifying it's [RegionPos](../-region-pos/index.md) by the name of the file.
 
 ### Parameters
 
-`file` - The file to be read. It must be named like r.1.-2.mca where 1 is it's xPos and -2 it's zPos.`@JvmStatic fun readRegion(file: `[`File`](https://docs.oracle.com/javase/6/docs/api/java/io/File.html)`, pos: `[`RegionPos`](../-region-pos/index.html)`): `[`Region`](../-region/index.html)
+`file` - The file to be read. It must be named like r.1.-2.mca where 1 is it's xPos and -2 it's zPos.`@JvmStatic fun readRegion(file: `[`File`](https://docs.oracle.com/javase/6/docs/api/java/io/File.html)`, pos: `[`RegionPos`](../-region-pos/index.md)`): `[`Region`](../-region/index.md)
 
-Reads a region using a specified [RegionPos](../-region-pos/index.html).
+Reads a region using a specified [RegionPos](../-region-pos/index.md).
 
 ### Parameters
 

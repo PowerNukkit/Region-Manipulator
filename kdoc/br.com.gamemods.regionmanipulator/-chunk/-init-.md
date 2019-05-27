@@ -1,8 +1,4 @@
----
-title: Chunk.<init> - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [Chunk](index.html) / [&lt;init&gt;](./-init-.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [Chunk](index.md) / [&lt;init&gt;](./-init-.md)
 
 # &lt;init&gt;
 

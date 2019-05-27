@@ -1,8 +1,4 @@
----
-title: RegionPos - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [RegionPos](./index.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [RegionPos](./index.md)
 
 # RegionPos
 
@@ -14,10 +10,13 @@ A region position extracted from the region file name.
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `RegionPos(mcaFileName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)`<br>Parses a region file name. Only support valid names like `r.-3.2.mca`.`RegionPos(xPos: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, zPos: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`)`<br>A region position extracted from the region file name. |
+| Name | Summary |
+|---|---|
+| [&lt;init&gt;](-init-.md) | `RegionPos(mcaFileName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)`<br>Parses a region file name. Only support valid names like `r.-3.2.mca`.`RegionPos(xPos: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, zPos: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`)`<br>A region position extracted from the region file name. |
 
 ### Properties
 
-| [xPos](x-pos.html) | `val xPos: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The first number in the region file name. May be negative. |
-| [zPos](z-pos.html) | `val zPos: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The second number in the region file name. May be negative. |
-
+| Name | Summary |
+|---|---|
+| [xPos](x-pos.md) | `val xPos: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The first number in the region file name. May be negative. |
+| [zPos](z-pos.md) | `val zPos: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The second number in the region file name. May be negative. |

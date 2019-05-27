@@ -1,8 +1,4 @@
----
-title: Chunk.lastModified - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [Chunk](index.html) / [lastModified](./last-modified.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [Chunk](index.md) / [lastModified](./last-modified.md)
 
 # lastModified
 

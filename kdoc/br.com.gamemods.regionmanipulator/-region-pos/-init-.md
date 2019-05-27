@@ -1,8 +1,4 @@
----
-title: RegionPos.<init> - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [RegionPos](index.html) / [&lt;init&gt;](./-init-.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [RegionPos](index.md) / [&lt;init&gt;](./-init-.md)
 
 # &lt;init&gt;
 

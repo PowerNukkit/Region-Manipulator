@@ -1,8 +1,4 @@
----
-title: RegionPos.zPos - 
----
-
-[br.com.gamemods.regionmanipulator](../index.html) / [RegionPos](index.html) / [zPos](./z-pos.html)
+[br.com.gamemods.regionmanipulator](../index.md) / [RegionPos](index.md) / [zPos](./z-pos.md)
 
 # zPos
 
