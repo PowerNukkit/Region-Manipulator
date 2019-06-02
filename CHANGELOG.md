@@ -7,11 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 Click the link above to see the future.
 
+### Changed
+- Updated [NBT-Manipulator to `1.1.0`][NBT 1.1.0]
+
+### Fixed
+- [#3] KotlinNullPointerException when reading some region files
+
 ## [1.0.1] - 2019-05-27
 [Downloads from maven central.][Download 1.0.1]
 
 [Kotlin Documentation][KDoc 1.0.1]
-- Updated NBT-Manipulator to `1.0.1`
+
+### Changed
+- Updated [NBT-Manipulator to `1.0.1`][NBT 1.0.1]
 
 ## [1.0.0] - 2019-05-27
 [Downloads from maven central.][Download 1.0.0]
@@ -19,7 +27,7 @@ Click the link above to see the future.
 [Kotlin Documentation][KDoc 1.0.0]
 
 ### Changed
-- Updated NBT-Manipulator to `1.0.0`
+- Updated [NBT-Manipulator to `1.0.0`][NBT 1.0.0]
 
 ## [0.0.4] - 2019-05-27
 [Downloads from maven central.][Download 0.0.4]
@@ -34,7 +42,7 @@ Click the link above to see the future.
 - `Region.put` will now check if the key matches the value's position
 - `Region.addAllNotNull` is now synthetic, java users should always call `Region.addAll`
 - `Region.addAllNullable`is now deprecated. Java users should always call `Region.addAll`
-- Updated NBT-Manipulator to `0.0.2`
+- Updated [NBT-Manipulator to `0.0.2`][NBT 0.0.2]
 
 ### Fixed
 - Potential exception when trying to remove a chunk that is not valid for the region
@@ -82,5 +90,11 @@ Click the link above to see the future.
 [KDoc 1.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/4bea23fa037af955505ed1aff78fbae8e87a589a/kdoc/br.com.gamemods.regionmanipulator/index.md
 
 [NBT-Manipulator]: https://github.com/GameModsBR/NBT-Manipulator/
+[NBT 1.1.0]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#unreleased
+[NBT 1.0.1]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#101---2019-05-27
+[NBT 1.0.0]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#100---2019-05-27
+[NBT 0.0.2]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#002---2019-05-27
+
 [#1]: https://github.com/GameModsBR/Region-Manipulator/issues/1
+[#3]: https://github.com/GameModsBR/Region-Manipulator/issues/3
 

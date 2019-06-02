@@ -49,7 +49,7 @@ internal fun clearEntities(from: File, to: File) {
     chunk.level.getCompoundList("Entities").forEach { 
         println(it.getString("id") + " "+ it.getDoubleList("Pos"))
     }
-    chunk.level["Entities"] = NbtList(mutableListOf<NbtCompound>())
+    chunk.level["Entities"] = emptyListOf<NbtCompound>().toNbtList()
     RegionIO.writeRegion(to, region)
 }
 ```
