@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 Click the link above to see the future.
 
+## [1.1.0] - 2019-06-02
+[Downloads from maven central.][Download 1.1.0]
+
+[Kotlin Documentation][KDoc 1.1.0]
+
 ### Added
 - Methods to manipulate corrupt chunks
 
@@ -75,7 +80,8 @@ Click the link above to see the future.
 - API to read and write to/from MCA files using `RegionIO`
 - API to freely manipulate `Region` and `Chunk` data loaded in memory
 
-[Unreleased]: https://github.com/GameModsBR/Region-Manipulator/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/GameModsBR/Region-Manipulator/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/GameModsBR/Region-Manipulator/compare/v1.0.1..v1.1.0
 [1.0.1]: https://github.com/GameModsBR/Region-Manipulator/compare/v1.0.0..v1.0.1
 [1.0.0]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.4..v1.0.0
 [0.0.4]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.3..v0.0.4
@@ -83,6 +89,7 @@ Click the link above to see the future.
 [0.0.2]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.1..v0.0.2
 [0.0.1]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.0..v0.0.1
 
+[Download 1.1.0]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/1.1.0/
 [Download 1.0.1]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/1.0.1/
 [Download 1.0.0]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/1.0.0/
 [Download 0.0.4]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.4/
@@ -90,11 +97,12 @@ Click the link above to see the future.
 [Download 0.0.2]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.2/
 [Download 0.0.1]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.1/
 
+[KDoc 1.1.0]: https://github.com/GameModsBR/Region-Manipulator/blob/d8893b801af7a65977b2b457009902da8cd10d47/kdoc/br.com.gamemods.regionmanipulator/index.md
 [KDoc 1.0.1]: https://github.com/GameModsBR/Region-Manipulator/blob/d8893b801af7a65977b2b457009902da8cd10d47/kdoc/br.com.gamemods.regionmanipulator/index.md
 [KDoc 1.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/4bea23fa037af955505ed1aff78fbae8e87a589a/kdoc/br.com.gamemods.regionmanipulator/index.md
 
 [NBT-Manipulator]: https://github.com/GameModsBR/NBT-Manipulator/
-[NBT 1.1.0]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#unreleased
+[NBT 1.1.0]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#110---2019-06-02
 [NBT 1.0.1]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#101---2019-05-27
 [NBT 1.0.0]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#100---2019-05-27
 [NBT 0.0.2]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#002---2019-05-27
