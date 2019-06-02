@@ -2,6 +2,8 @@ package br.com.gamemods.regionmanipulator
 
 import org.junit.Test
 import java.io.File
+import java.util.zip.ZipFile
+import java.util.zip.ZipInputStream
 
 class RegionTest {
     @Test
@@ -30,5 +32,17 @@ class RegionTest {
 
         val mca = RegionIO.readRegion(tempFile, RegionPos(-1, -2))
         RegionIO.writeRegion(tempFile, mca)
+    }
+
+    @Test
+    fun testIssue3fix() {
+        val tempFile = File.createTempFile("r.0,-1,", ".mca")
+        tempFile.deleteOnExit()
+        RegionTest::class.java.getResourceAsStream("/issue-3.r.0.-1.mca").use { input ->
+            tempFile.outputStream().use { output ->
+                input.copyTo(output)
+            }
+        }
+        RegionIO.readRegion(tempFile, RegionPos(0, -1))
     }
 }

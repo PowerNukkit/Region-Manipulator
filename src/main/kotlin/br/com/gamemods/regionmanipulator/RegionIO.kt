@@ -44,7 +44,7 @@ object RegionIO {
 
             for (i in 0 until 1024) {
                 input.readInt().takeUnless { it == 0 }?.let {
-                    chunkInfos[i]!!.lastModified = Date( it * 1000L)
+                    chunkInfos[i]?.lastModified = Date( it * 1000L)
                 }
             }
 
