@@ -6,3 +6,5 @@
 
 A mutable set containing mutable entries which when modified will also modify the [Region](index.md) object.
 
+Corrupt chunks are skipped.
+
