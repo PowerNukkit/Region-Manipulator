@@ -7,10 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 Click the link above to see the future.
 
+### Added
+- Methods to manipulate corrupt chunks
+
 ### Changed
 - Updated [NBT-Manipulator to `1.1.0`][NBT 1.1.0]
 
 ### Fixed
+- [#2] Corrupt chunk prevents the entire region to load
 - [#3] KotlinNullPointerException when reading some region files
 
 ## [1.0.1] - 2019-05-27
@@ -96,5 +100,6 @@ Click the link above to see the future.
 [NBT 0.0.2]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#002---2019-05-27
 
 [#1]: https://github.com/GameModsBR/Region-Manipulator/issues/1
+[#2]: https://github.com/GameModsBR/Region-Manipulator/issues/2
 [#3]: https://github.com/GameModsBR/Region-Manipulator/issues/3
 

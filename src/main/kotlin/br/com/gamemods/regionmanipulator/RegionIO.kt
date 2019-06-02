@@ -48,6 +48,8 @@ object RegionIO {
                 }
             }
 
+            val corruptChunks = mutableListOf<CorruptChunk>()
+
             val chunks = chunkInfos.mapIndexed { i, ci ->
                 val info = ci ?: return@mapIndexed null
                 input.seek(info.location.toLong())
@@ -60,18 +62,23 @@ object RegionIO {
                 val data = ByteArray(length)
                 input.readFully(data)
 
-                val inputStream = when (compression) {
-                    1 -> GZIPInputStream(ByteArrayInputStream(data))
-                    2 -> InflaterInputStream(ByteArrayInputStream(data))
-                    else -> error("Unexpected compression type $compression")
-                }
+                try {
+                    val inputStream = when (compression) {
+                        1 -> GZIPInputStream(ByteArrayInputStream(data))
+                        2 -> InflaterInputStream(ByteArrayInputStream(data))
+                        else -> error("Unexpected compression type $compression")
+                    }
 
-                val nbt = NbtIO.readNbtFile(inputStream, false)
-                Chunk(info.lastModified, nbt)
+                    val nbt = NbtIO.readNbtFile(inputStream, false)
+                    Chunk(info.lastModified, nbt)
+                } catch (e: Throwable) {
+                    corruptChunks += CorruptChunk(pos, i, info.lastModified, data, e)
+                    null
+                }
             }
 
 
-            val region = Region(pos, chunks)
+            val region = Region(pos, chunks, corruptChunks)
             return region
         }
     }

@@ -11,10 +11,25 @@ import kotlin.math.floor
  *
  * Note that all chunks stored here must actually be part of the region.
  *
+ * Corrupt chunks will cause the region to fire [CorruptChunkException] when an attempt to read happens.
+ *
+ * Corrupt chunks can be manipulated with [setCorrupt], [getCorrupt] and [remove].
+ *
  * @property position Where this region resides in the world.
  */
 class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
     private val chunks = Array<Chunk?>(1024) { null }
+    private val corruptChunks = mutableMapOf<ChunkPos, CorruptChunk>()
+
+    /**
+     * Creates a region pre-populated with chunks.
+     * @param position Where this region resides in the world.
+     * @param corruptChunks A list of corrupt chunks
+     */
+    constructor(position: RegionPos, chunks: List<Chunk?>, corruptChunks: List<CorruptChunk?>): this(position) {
+        addAll(chunks)
+        corruptChunks.asSequence().filterNotNull().forEach { setCorrupt(it) }
+    }
 
     /**
      * Creates a region pre-populated with chunks.
@@ -23,6 +38,21 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
     constructor(position: RegionPos, chunks: List<Chunk?>): this(position) {
         addAll(chunks)
     }
+
+    /**
+     * Similar to [add] but adding a corrupt chunk.
+     */
+    fun setCorrupt(corruptChunk: CorruptChunk): Chunk? {
+        corruptChunk.position.checkValid()
+        val removed = remove(corruptChunk.position)
+        corruptChunks[corruptChunk.position] = corruptChunk
+        return removed
+    }
+
+    /**
+     * Sililar to [get] but will get only corrupt chunks without firing exception.
+     */
+    fun getCorrupt(key: ChunkPos): CorruptChunk? = corruptChunks[key]
 
     /**
      * Adds a chunk to this region.
@@ -37,6 +67,7 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
         val offset = offset(key)
         val before = chunks[offset]
         chunks[offset] = value
+        corruptChunks -= key
         return before
     }
 
@@ -57,17 +88,23 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
     /**
      * Returns the chunk content for the given key or null if the chunk is not part of this region or is empty.
      * @param key The chunk position in the world
+     * @throws CorruptChunkException If the [key] points to a corrupt chunk
      */
+    @Throws(CorruptChunkException::class)
     override fun get(key: ChunkPos): Chunk? {
         if (!key.isValid()) {
             return null
+        }
+
+        corruptChunks[key]?.let { corruptChunk ->
+            throw CorruptChunkException(corruptChunk)
         }
 
         return chunks[offset(key)]
     }
 
     /**
-     * Removes a chunk from this region, thus making it empty.
+     * Removes a chunk from this region, thus making it empty. Also removes corrupt chunks.
      * @param key The chunk position in the world
      */
     override fun remove(key: ChunkPos): Chunk? {
@@ -77,11 +114,13 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
         val offset = offset(key)
         val before = chunks[offset]
         chunks[offset] = null
+        corruptChunks -= key
         return before
     }
 
     /**
      * Removes a chunk from this region, thus making it empty. But only removes if the current value matches the given value.
+     * Does **not** remove corrupt chunks.
      * @param key The chunk position in the world
      * @param value The expected value. Will only remove if the current value matches this value.
      */
@@ -137,7 +176,14 @@ class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
     fun addAllNullable(chunks: List<Chunk?>) = addAll(chunks)
 
     /**
+     * Gets a immutable map with all corrupt chunks in this region.
+     */
+    fun getCorruptChunks() = corruptChunks.toMap()
+
+    /**
      * A mutable set containing mutable entries which when modified will also modify the [Region] object.
+     *
+     * Corrupt chunks are skipped.
      */
     override val entries: MutableSet<MutableMap.MutableEntry<ChunkPos, Chunk>>
         get() = object : AbstractMutableSet<MutableMap.MutableEntry<ChunkPos, Chunk>>() {
