@@ -11,3 +11,7 @@ Saves a [Region](../-region/index.md) in a [File](https://docs.oracle.com/javase
 `file` - The file which will be written.
 
 `region` - The region which will be saved.
+
+### Exceptions
+
+`IOException` - If an IO exception occurs while writing to the file.

@@ -4,8 +4,8 @@
 
 `var throwable: `[`Throwable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)
 
-The throwable that prevented the chunk from loading
+The throwable that prevented the chunk from loading.
 
 ### Property
 
-`throwable` - The throwable that prevented the chunk from loading
+`throwable` - The throwable that prevented the chunk from loading.
