@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 Click the link above to see the future.
 
+## [2.0.0] - 2020-01-24
+[Downloads from maven central.][Download 2.0.0]
+
+[Kotlin Documentation][KDoc 2.0.0]
+
 ### Changed
 - Added new properties to the `data class CorruptChunk`
 - Changed the `CorruptChunk` constructors **(Breaking Change)**
@@ -52,6 +57,7 @@ Click the link above to see the future.
 
 ## [0.0.4] - 2019-05-27
 [Downloads from maven central.][Download 0.0.4]
+
 ### Added
 - This changelog file
 - Documentation to all public types, methods and properties.
@@ -92,7 +98,8 @@ Click the link above to see the future.
 - API to read and write to/from MCA files using `RegionIO`
 - API to freely manipulate `Region` and `Chunk` data loaded in memory
 
-[Unreleased]: https://github.com/GameModsBR/Region-Manipulator/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/GameModsBR/Region-Manipulator/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/GameModsBR/Region-Manipulator/compare/v1.1.0..v2.0.0
 [1.1.0]: https://github.com/GameModsBR/Region-Manipulator/compare/v1.0.1..v1.1.0
 [1.0.1]: https://github.com/GameModsBR/Region-Manipulator/compare/v1.0.0..v1.0.1
 [1.0.0]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.4..v1.0.0
@@ -101,6 +108,7 @@ Click the link above to see the future.
 [0.0.2]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.1..v0.0.2
 [0.0.1]: https://github.com/GameModsBR/Region-Manipulator/compare/v0.0.0..v0.0.1
 
+[Download 2.0.0]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/2.0.0/
 [Download 1.1.0]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/1.1.0/
 [Download 1.0.1]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/1.0.1/
 [Download 1.0.0]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/1.0.0/
@@ -109,6 +117,7 @@ Click the link above to see the future.
 [Download 0.0.2]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.2/
 [Download 0.0.1]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.1/
 
+[KDoc 2.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/fceac1330da02c9a8ebf65ec13c8f48c00694e01/kdoc/br.com.gamemods.regionmanipulator/index.md
 [KDoc 1.1.0]: https://github.com/GameModsBR/Region-Manipulator/blob/3f6f29a823df9ce6f0c4b30ff35900119f7a62af/kdoc/br.com.gamemods.regionmanipulator/index.md
 [KDoc 1.0.1]: https://github.com/GameModsBR/Region-Manipulator/blob/d8893b801af7a65977b2b457009902da8cd10d47/kdoc/br.com.gamemods.regionmanipulator/index.md
 [KDoc 1.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/4bea23fa037af955505ed1aff78fbae8e87a589a/kdoc/br.com.gamemods.regionmanipulator/index.md
