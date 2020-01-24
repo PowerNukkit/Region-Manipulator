@@ -2,6 +2,7 @@ package br.com.gamemods.regionmanipulator
 
 import org.junit.Assert
 import org.junit.Test
+import java.io.EOFException
 import java.io.File
 
 class RegionTest {
@@ -59,5 +60,25 @@ class RegionTest {
             }
         }
         RegionIO.readRegion(tempFile, RegionPos(0, -1))
+    }
+
+    @Test
+    fun testMC1_15_1() {
+        val tempFile = File.createTempFile("r.0,-1,", ".mca")
+        tempFile.deleteOnExit()
+        val mcaBytes = RegionTest::class.java.getResourceAsStream("/issue-4-v1.15.1-r.0.0.mca").use { it.buffered().readBytes() }
+        tempFile.outputStream().use {
+            it.buffered().use { output ->
+                output.write(mcaBytes, 0, (mcaBytes.size*2 / 3) + 15) // Writing only 2/3 + 15 of the MCA file to force corruption
+            }
+        }
+        val region = RegionIO.readRegion(tempFile, RegionPos(0, 0));
+        Assert.assertEquals(40, region.getCorruptChunks().size)
+        Assert.assertEquals(90, region.size)
+        val corrupt = region.getCorrupt(ChunkPos(8, 10))
+        Assert.assertNotNull(corrupt); corrupt!!
+        Assert.assertEquals(4473, corrupt.length)
+        Assert.assertEquals(1375, corrupt.chunkContent?.size)
+        Assert.assertTrue(corrupt.throwable is EOFException)
     }
 }

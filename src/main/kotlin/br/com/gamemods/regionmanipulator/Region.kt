@@ -18,7 +18,7 @@ import kotlin.math.floor
  * @property position Where this region resides in the world.
  */
 class Region(val position: RegionPos): AbstractMutableMap<ChunkPos, Chunk>() {
-    private val chunks = Array<Chunk?>(1024) { null }
+    private val chunks = arrayOfNulls<Chunk?>(1024)
     private val corruptChunks = mutableMapOf<ChunkPos, CorruptChunk>()
 
     /**

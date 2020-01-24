@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 Click the link above to see the future.
 
+### Changed
+- Added new properties to the `data class CorruptChunk`
+- Changed the `CorruptChunk` constructors **(Breaking Change)**
+- `CorruptChunk.chunkContent` is now nullable **(Breaking Change)**
+- `RegionIO.readRegion` and `RegionIO.writeRegion` now throws `IOException` in Java **(Breaking Change)**
+- `RegionIO.readRegion` can now handle more corrupted chunks scenarios, preventing total failures while reading the MCA file
+- Updated [NBT-Manipulator to `2.0.0`][NBT 2.0.0] 
+- Updated Kotlin to 1.3.61
+
+### Fixed
+- [#4] `EOFException` when attempt to read a MCA file which contains incomplete corrupted chunks
+
 ## [1.1.0] - 2019-06-02
 [Downloads from maven central.][Download 1.1.0]
 
@@ -102,6 +114,7 @@ Click the link above to see the future.
 [KDoc 1.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/4bea23fa037af955505ed1aff78fbae8e87a589a/kdoc/br.com.gamemods.regionmanipulator/index.md
 
 [NBT-Manipulator]: https://github.com/GameModsBR/NBT-Manipulator/
+[NBT 2.0.0]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#200---2020-01-24
 [NBT 1.1.0]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#110---2019-06-02
 [NBT 1.0.1]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#101---2019-05-27
 [NBT 1.0.0]: https://gamemodsbr.github.io/NBT-Manipulator/CHANGELOG.html#100---2019-05-27
@@ -110,4 +123,5 @@ Click the link above to see the future.
 [#1]: https://github.com/GameModsBR/Region-Manipulator/issues/1
 [#2]: https://github.com/GameModsBR/Region-Manipulator/issues/2
 [#3]: https://github.com/GameModsBR/Region-Manipulator/issues/3
+[#4]: https://github.com/GameModsBR/Region-Manipulator/issues/4
 

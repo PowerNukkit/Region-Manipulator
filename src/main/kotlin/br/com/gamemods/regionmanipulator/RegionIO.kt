@@ -8,6 +8,7 @@ import java.util.zip.Deflater
 import java.util.zip.GZIPInputStream
 import java.util.zip.InflaterInputStream
 import kotlin.math.ceil
+import kotlin.math.min
 
 /**
  * Contains usefull methods do read and write [Region] from [File].
@@ -16,8 +17,13 @@ object RegionIO {
     /**
      * Reads a region identifying it's [RegionPos] by the name of the file.
      * @param file The file to be read. It must be named like r.1.-2.mca where 1 is it's xPos and -2 it's zPos.
+     *
+     * @throws IOException If an IO exception occurs while reading the MCA headers.
+     * Exceptions which happens while loading the chunk's body are reported in [CorruptChunk.throwable]
+     * which can be acceded using [Region.getCorrupt] or [Region.getCorruptChunks]
      */
     @JvmStatic
+    @Throws(IOException::class)
     fun readRegion(file: File): Region {
         val nameParts = file.name.split('.', limit = 4)
         val xPos = nameParts[1].toInt()
@@ -32,8 +38,13 @@ object RegionIO {
      * Reads a region using a specified [RegionPos].
      * @param file The file to be read. Can have any name
      * @param pos The position of this region. Must match the content's otherwise it won't be manipulable.
+     *
+     * @throws IOException If an IO exception occurs while reading the MCA headers.
+     * Exceptions which happens while loading the chunk's body are reported in [CorruptChunk.throwable]
+     * which can be acceded using [Region.getCorrupt] or [Region.getCorruptChunks]
      */
     @JvmStatic
+    @Throws(IOException::class)
     fun readRegion(file: File, pos: RegionPos): Region {
 
         RandomAccessFile(file, "r").use { input ->
@@ -50,19 +61,29 @@ object RegionIO {
 
             val corruptChunks = mutableListOf<CorruptChunk>()
 
-            val chunks = chunkInfos.mapIndexed { i, ci ->
-                val info = ci ?: return@mapIndexed null
-                input.seek(info.location.toLong())
-                val length = input.readInt()
-                val compression = input.read()
-                check(compression == 1 || compression == 2) {
-                    "Bad compression $compression . Chunk index: $i"
-                }
-
-                val data = ByteArray(length)
-                input.readFully(data)
-
+            val chunks = chunkInfos.mapIndexedNotNull { i, ci ->
+                val info = ci ?: return@mapIndexedNotNull null
+                var length: Int? = null
+                var compression: Int? = null
+                var data: ByteArray? = null
                 try {
+                    input.seek(info.location.toLong())
+                    length = input.readInt()
+                    compression = input.read()
+                    check(compression == 1 || compression == 2) {
+                        "Bad compression $compression . Chunk index: $i"
+                    }
+
+                    data = ByteArray(min(length, info.size))
+                    val read = input.readFullyIfPossible(data)
+                    if (read < data.size) {
+                        data = data.copyOf(read)
+                    }
+
+                    if (length > data.size) {
+                        throw EOFException("Could not read all $length bytes. Read only ${data.size} bytes in a sector of ${info.size} bytes")
+                    }
+
                     val inputStream = when (compression) {
                         1 -> GZIPInputStream(ByteArrayInputStream(data))
                         2 -> InflaterInputStream(ByteArrayInputStream(data))
@@ -72,15 +93,45 @@ object RegionIO {
                     val nbt = NbtIO.readNbtFile(inputStream, false)
                     Chunk(info.lastModified, nbt)
                 } catch (e: Throwable) {
-                    corruptChunks += CorruptChunk(pos, i, info.lastModified, data, e)
+                    corruptChunks += CorruptChunk(
+                        pos, i, info.lastModified, data,
+                        info.location.toLong(), info.size,
+                        length, compression, e
+                    )
                     null
                 }
             }
 
 
-            val region = Region(pos, chunks, corruptChunks)
-            return region
+            return Region(pos, chunks, corruptChunks)
         }
+    }
+
+    /**
+     * Attempts to read `array.size` bytes from the file into the byte
+     * array, starting at the current file pointer. This method reads
+     * repeatedly from the file until the requested number of bytes are
+     * read or the end of the file is reached.
+     * This method blocks until the requested number of bytes are
+     * read, the end of the stream is detected, or an exception is thrown.
+     *
+     * Differently from [RandomAccessFile.readFully], [EOFException] is never thrown.
+     *
+     * @return The number of bytes which was read into the array,
+     * if the end of the file was reached the number will be lower then the array size
+     * and the remaining bytes in the array will not be changed.
+     */
+    private fun RandomAccessFile.readFullyIfPossible(array: ByteArray): Int {
+        val size = array.size
+        var currentSize = 0;
+        do {
+            val read = this.read(array, currentSize, size - currentSize)
+            if (read < 0) {
+                return currentSize
+            }
+            currentSize += read
+        } while (currentSize < size)
+        return currentSize
     }
 
     private fun deflate(data: ByteArray, level: Int): ByteArray {
@@ -105,8 +156,11 @@ object RegionIO {
      * Saves a [Region] in a [File]. The region file will be entirely rebuilt.
      * @param file The file which will be written.
      * @param region The region which will be saved.
+     *
+     * @throws IOException If an IO exception occurs while writing to the file.
      */
     @JvmStatic
+    @Throws(IOException::class)
     fun writeRegion(file: File, region: Region) {
         val chunkInfoHeader = mutableListOf<ChunkInfo>()
 
