@@ -117,7 +117,7 @@ Click the link above to see the future.
 [Download 0.0.2]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.2/
 [Download 0.0.1]: http://central.maven.org/maven2/br/com/gamemods/region-manipulator/0.0.1/
 
-[KDoc 2.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/3f6f29a823df9ce6f0c4b30ff35900119f7a62af/kdoc/br.com.gamemods.regionmanipulator/index.md
+[KDoc 2.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/a2caa7ed45030f0b83bdf0cb95fe5993caa8750a/kdoc/br.com.gamemods.regionmanipulator/index.md
 [KDoc 1.1.0]: https://github.com/GameModsBR/Region-Manipulator/blob/3f6f29a823df9ce6f0c4b30ff35900119f7a62af/kdoc/br.com.gamemods.regionmanipulator/index.md
 [KDoc 1.0.1]: https://github.com/GameModsBR/Region-Manipulator/blob/d8893b801af7a65977b2b457009902da8cd10d47/kdoc/br.com.gamemods.regionmanipulator/index.md
 [KDoc 1.0.0]: https://github.com/GameModsBR/Region-Manipulator/blob/4bea23fa037af955505ed1aff78fbae8e87a589a/kdoc/br.com.gamemods.regionmanipulator/index.md
