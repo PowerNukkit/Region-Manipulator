@@ -30,7 +30,7 @@ data class Chunk(var lastModified: Date, var nbtFile: NbtFile) {
      * The `Level` tag, all chunk details like entities, tile entities, chunk sections, etc are stored here.
      */
     val level: NbtCompound
-        get() = compound.getCompound("Level")
+        get() = Optional.ofNullable(compound.getNullableCompound("Level")).orElse(compound)
 
     /**
      * The X/Z position in the world where this chunk resides.
